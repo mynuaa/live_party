@@ -143,8 +143,10 @@ function getData(){
 		success:function(d){
 			firstAjax=0;
 			var data=JSON.parse(d);
-			if(data==null||data.mp==null)return;
-			if(data.d==undefined)return;
+			if(data==null||data.mp==null||data.d==undefined){
+				dom.dm.innerHTML="";
+				return;
+			}
 			var ts="";
 			for(var i=0;i<data.l;i++){
 				ts+="<div>"+
