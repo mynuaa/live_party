@@ -143,7 +143,7 @@ function getData(){
 		success:function(d){
 			firstAjax=0;
 			var data=JSON.parse(d);
-			if(data==null||data.mp==null||data.d==undefined){
+			if(data==null||data.mp==null){
 				dom.dm.innerHTML="";
 				return;
 			}
