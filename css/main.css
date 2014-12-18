@@ -1,0 +1,154 @@
+#player{
+	width:640px;
+	height:480px;
+}
+#floatDM{
+	width:640px;
+	height:454px;
+	overflow:hidden;
+	position:absolute;
+}
+.floatDM{
+	font-size:36px;
+	position:absolute;
+	color:#FFF;
+	opacity:0.5;
+	cursor:context-menu;
+	-webkit-user-select:none;
+	user-select:none;
+}
+#controls{
+	position:absolute;
+	background:#EEE;
+	left:0;
+	right:0;
+	height:36px;
+	bottom:0;
+	box-sizing:border-box;
+	border-top:2px solid #666;
+}
+#controls>img{
+	width:34px;
+	height:34px;
+}
+#controls>input{
+	position:absolute;
+	display:inline-block;
+	margin:0;
+	padding:0;
+	outline:none;
+	border:none;
+	left:36px;
+	right:0;
+	height:36px;
+	padding-left:0.5em;
+	width:15em;
+	box-sizing:border-box;
+}
+#loading{
+	width:15em;
+	height:3em;
+	line-height:3em;
+	text-align:center;
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin:-1.5em 0 0 -7.5em;
+	border:none !important;
+}
+#loading:hover{background-color:#FFF !important;}
+#player,#controls{float:left;}
+#ctrl-buttons{
+	display:inline-block;
+	float:right;
+	height:34px;
+	line-height:34px;
+}
+#ctrl-buttons>a{
+	display:inline-block;
+	text-align:center;
+	cursor:pointer;
+	width:34px;
+	height:34px;
+	float:left;
+	text-decoration:none;
+	-webkit-user-select:none;
+	user-select:none;
+	font-weight:bold;
+	font-size:1.5em;
+}
+#ctrl-buttons>a:hover{background:#BBB;}
+#ctrl-buttons>a:active{
+	background:#333;
+	color:#FFF;
+}
+#wp{
+	position:relative;
+	padding:20px 0;
+	box-sizing:border-box;
+}
+#outer{
+	background:#FFF;
+	box-shadow:0 0 10px #333;
+	overflow:hidden;
+}
+#dms{
+	position:absolute;
+	top:20px;
+	left:640px;
+	right:0;
+	bottom:20px;
+	overflow:hidden;
+}
+#dm{
+	position:absolute;
+	overflow:auto;
+	top:2.5em;
+	left:0;
+	right:0;
+	bottom:36px;
+	box-sizing:border-box;
+	border-top:1px solid transparent;
+}
+#dm>div{
+	border-bottom:1px solid #BBB;
+	color:#000;
+	overflow:hidden;
+}
+#dm>div:hover{background:#EEE;}
+#dm-header{
+	border-bottom:1px solid #BBB;
+	background:#EEE;
+	top:20px !important;
+	bottom:auto !important;
+	overflow:hidden;
+}
+.avatar,.author,.content{
+	display:inline-block;
+	float:left;
+}
+.avatar{
+	width:2.5em;
+	height:2.5em;
+}
+.author,.content{
+	line-height:2.5em;
+	height:2.5em;
+	vertical-align:top;
+	border-left:1px solid #BBB;
+	padding-left:0.4em;
+}
+.author{
+	width:6em;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+.content{
+	width:15em;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+.content img{margin:2px 0;}
+.b{font-weight:bold;}

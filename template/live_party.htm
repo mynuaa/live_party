@@ -1,0 +1,60 @@
+<!--{template common/header}-->
+<link rel="stylesheet" href="{$plugPosi}/css/main.css">
+<div id="outer">
+	<div id="player"></div>
+	<div id="floatDM">
+		<span class="floatDM">233333333</span>
+	</div>
+	<script src="{$plugPosi}/flowplayer-3.2.13.min.js"></script>
+	<script>
+	var ver={$ver};
+	flowplayer("player", "{$plugPosi}/flowplayer-3.2.18.swf", {
+		clip: {
+			url: 'tv662',
+			live: true,
+			scaling: 'fit',
+			provider: 'hddn',
+			bufferLength: '1',
+			autoPlay: true,
+			autoBuffering: true
+		},
+		plugins: {
+			hddn: {
+				url: "{$plugPosi}/flowplayer.rtmp-3.2.13.swf",
+				netConnectionUrl: '{$url}'
+			}
+		},
+		canvas: {
+			backgroundColor: '#000000',
+			backgroundGradient: 'none',
+		}
+	});
+	</script>
+	<div id="dms">
+		<div id="dm-header" class="b">
+			<span class="avatar"></span>
+			<span class="author">用户</span>
+			<span class="content">吐槽</span>
+		</div>
+		<div id="dm">
+			<div id="loading">% 弹幕加载中，请稍候 %</div>
+		</div>
+		<div id="controls">
+		<!--{if $_G['uid'] != 0}-->
+			<img class="avatar" src="./uc_server/avatar.php?uid={$_G['uid']}&size=small"></span>
+			<input id="sendText" type="text" placeholder="输入你想吐槽的内容……" />
+			<div id="ctrl-buttons">
+				<a onclick="sendMessage()" title="发送弹幕（按回车键快一些哦~）">✔</a>
+				<a id="toggle" onclick="toggleDM()" title="显示/隐藏弹幕">●</a>
+		<!--{else}-->
+			<span style="line-height:34px;padding-left:0.5em">要发送弹幕，请先登录。</span>
+			<div id="ctrl-buttons">
+		<!--{/if}-->
+				<a href="plugin.php?id=NewPlaneWall:NewPlaneWall" target="_blank" title="打开飞机墙">✈</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!--{template common/footer}-->
+<script src="./static/js/jquery.min.js"></script>
+<script src="{$plugPosi}/js/main.js"></script>
