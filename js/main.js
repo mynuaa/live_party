@@ -69,7 +69,7 @@ var ajaxLag=3000,
 		["pd","cd"],
 		["<W>","xig"],
 		["heart","xin"],
-		["showlove","sa"]
+		["showlove","sa"],
 		["break","xs"],
 		["cake","cake"],
 		["li","li"],
