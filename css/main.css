@@ -9,13 +9,20 @@
 	position:absolute;
 }
 .floatDM{
-	font-size:36px;
+	font-family:"SimHei";
+	font-size:28px;
 	position:absolute;
 	color:#FFF;
-	opacity:0.5;
+	text-shadow:0 0 3px #000;
+	font-weight:bold;
+	white-space:nowrap;
 	cursor:context-menu;
 	-webkit-user-select:none;
 	user-select:none;
+}
+#floatDM img{
+	background:#FFF;
+	border-radius:50%;
 }
 #controls{
 	position:absolute;

@@ -1,6 +1,8 @@
 var ajaxLag=3000,
 	lastpos=-1,
 	timeout=5000,
+	firstAjax=1,
+	len=[],
 	list=[
 		["\\:\\)","wx"],
 		["\\:\\~","pz"],
@@ -141,22 +143,41 @@ function getData(){
 		type:"GET",
 		timeout:timeout,
 		success:function(d){
+			var show=(firstAjax==0);
 			firstAjax=0;
 			var data=JSON.parse(d);
 			if(data==null||data.mp==null){
 				dom.dm.innerHTML="";
 				return;
 			}
+			if(lastpos==data.mp)return;
 			var ts="";
 			for(var i=0;i<data.l;i++){
+				len[i]=data.d[i][1].length;
+				data.d[i][1]=transfer(data.d[i][1]);
 				ts+="<div>"+
 					"<img class='avatar' src='./uc_server/avatar.php?uid="+data.d[i][3]+"&size=small' /><span class='author'>"+data.d[i][2]+"</span>"+
-					"<span class='content'>"+transfer(data.d[i][1])+"</span>"+
+					"<span class='content'>"+data.d[i][1]+"</span>"+
 					"</div>";
 			}
 			dom.dm.innerHTML=((lastpos==-1)?"":dom.dm.innerHTML)+ts;
 			dom.dm.scrollTop=dom.dm.scrollHeight;
 			lastpos=data.mp;
+			if(show){
+				for(var i=0;i<data.l;i++){
+					var tdm=document.createElement("span");
+					tdm.id="dm"+data.d[i][0];
+					tdm.className="floatDM";
+					tdm.innerHTML=data.d[i][1];
+					dom.floatDM.appendChild(tdm);
+					var pppp=jQuery(tdm);
+					pppp.css({"left":"640px","top":""+(Math.random()*300)+"px"})
+						.animate({"left":""+(-len[i]*36)+"px"},len[i]*25+5000,"linear",function(){
+							pppp="";
+							tdm.parentNode.removeChild(tdm);
+						});
+				}
+			}
 		}
 	});
 }
@@ -186,5 +207,6 @@ function toggleDM(){
 	dom.floatDM.style.display=(dom.floatDM.style.display=="none")?"block":"none";
 }
 // 定时AJAX
+getData();
 setInterval(getData,ajaxLag);
 dom.text.onkeypress=function(d){if(d.keyCode==13)sendMessage();}
