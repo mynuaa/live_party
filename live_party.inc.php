@@ -21,6 +21,7 @@ if (isset($_GET['ajax'])) {
 		'Content-Length: ' . strlen($data_string)
 	));
 	curl_exec($ch);
+	echo $data_string;
 }
 else {
 	$plugPosi = "source/plugin/live_party";
