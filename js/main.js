@@ -9,7 +9,7 @@ var ajaxLag=3000,
 		["\\:B","se"],
 		["\\:\\|","fd"],
 		["8\\-\\)","dy"],
-		["\\:&lt;","ll"],
+		["\\:<","ll"],
 		["\\:\\$","hx"],
 		["\\:X","bz"],
 		["\\:Z","shui"],
@@ -27,7 +27,7 @@ var ajaxLag=3000,
 		["\\|\\-\\)","kun"],
 		["\\:\\!","jk"],
 		["\\:L","lh"],
-		["\\:&gt;","hanx"],
+		["\\:>","hanx"],
 		["\\:\\,@","db"],
 		["\\,@f","fendou"],
 		["\\:D","cy"],
@@ -56,8 +56,8 @@ var ajaxLag=3000,
 		["rose","mg"],
 		["fade","dx"],
 		["b\\-\\)","huaix"],
-		["&lt;@","zhh"],
-		["@&gt;","yhh"],
+		["<@","zhh"],
+		["@>","yhh"],
 		["\\:\\-O","hq"],
 		[">\\-\\|","bs"],
 		["P\\-\\(","wq"],
@@ -202,7 +202,7 @@ function sendMessage(){
 			getData();
 			dom.text.focus();
 			dom.text.disabled=null;
-		}
+		},
 		error:function(d){dom.text.disabled=null;}
 	});
 }
