@@ -13,11 +13,11 @@ var ajaxLag=3000,
 		["\\:\\$","hx"],
 		["\\:X","bz"],
 		["\\:Z","shui"],
-		["\\:&#039;\\(","dk"],
+		["\\:'\\(","dk"],
 		["\\:\\-\\|","gg"],
 		["\\:@","fn"],
 		["\\:P","tp"],
-		["\\:Q","zq"],
+		["\\:Q","zk"],
 		["\\:T","tuu"],
 		["\\,@P","tx"],
 		["\\,@\\-D","ka"],
@@ -188,6 +188,8 @@ function sendMessage(){
 		dom.text.focus();
 		return;
 	}
+	dom.text.value="发送中，请稍候……";
+	dom.text.disabled="disabled";
 	jQuery.ajax({
 		url	:"./plugin.php?id=live_party:live_party&ajax",
 		type:"POST",
@@ -199,7 +201,9 @@ function sendMessage(){
 			dom.text.value="";
 			getData();
 			dom.text.focus();
+			dom.text.disabled=null;
 		}
+		error:function(d){dom.text.disabled=null;}
 	});
 }
 function toggleDM(){
