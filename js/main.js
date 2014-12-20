@@ -148,7 +148,7 @@ function getData(){
 			firstAjax=0;
 			var data=JSON.parse(d);
 			if(data==null||data.mp==null){
-				dom.dm.innerHTML="";
+				if(firstAjax==1)dom.dm.innerHTML="";
 				return;
 			}
 			if(lastpos==data.mp)return;
