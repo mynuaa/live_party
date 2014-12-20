@@ -1,4 +1,4 @@
-var ajaxLag=3000,
+var ajaxLag=2000,
 	lastpos=-1,
 	timeout=5000,
 	firstAjax=1,
