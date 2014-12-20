@@ -1,5 +1,10 @@
 <!--{template common/header}-->
 <link rel="stylesheet" href="{$plugPosi}/css/main.css">
+<div id="widthauto" class="popup pop-yellow">推荐使用窄版观看此页面哦，点击网页右上角的按钮可以快速切换的！</div>
+<!--[if lt IE 9]>
+<div class="popup pop-yellow">推荐使用现代浏览器（IE9+、Chrome、Firefox、Opera……）访问本页面。<br />若你确信你的浏览器是IE9+，请关掉兼容性视图。</div>
+<![endif]-->
+<div class="popup pop-green">视频看不了？直播要用内网看哦！如何上内网？点击<b><a href="http://my.nuaa.edu.cn/forum.php?mod=viewthread&tid=291857" target="_blank">这里</a></b>！</div>
 <div id="outer">
 	<div id="player"></div>
 	<div id="floatDM"></div>
@@ -29,7 +34,7 @@
 	});
 	</script>
 	<div id="dms">
-		<div id="dm-header" class="b">
+		<div id="dm-header">
 			<span class="avatar"></span>
 			<span class="author">用户</span>
 			<span class="content">吐槽</span>
@@ -40,7 +45,7 @@
 		<div id="controls">
 		<!--{if $_G['uid'] != 0}-->
 			<img class="avatar" src="./uc_server/avatar.php?uid={$_G['uid']}&size=small"></span>
-			<input id="sendText" type="text" placeholder="输入你想吐槽的内容……" />
+			<input id="sendText" type="text" placeholder="说点什么吧……" />
 			<div id="ctrl-buttons">
 				<a onclick="sendMessage()" title="发送弹幕（按回车键快一些哦~）">✔</a>
 				<a id="toggle" onclick="toggleDM()" title="显示/隐藏弹幕">●</a>

@@ -120,13 +120,13 @@ var ajaxLag=3000,
 // 转义符号表情
 function transfer(content){
 	// QQ表情
-	for(var i=0;i<list.length;i++)
+	for(var i=0;i<list.length;i++)if(list[i]!=null)
 		content=content.replace(
 			RegExp("\\/\\:"+list[i][0],"g"),
 			'<img src="./source/plugin/NewPlaneWall/img/face/'+list[i][1]+'.gif">'
 		);
 	// Emoji
-	for(var i=0;i<emoji.length;i++){
+	for(var i=0;i<emoji.length;i++)if(emoji[i]!=null){
 		content=content.replace(
 			eval('RegExp("\\\\ue'+emoji[i]+'","g")'),
 			'<img src="./source/plugin/NewPlaneWall/img/emoji/e'+emoji[i]+'.png">'
@@ -179,13 +179,14 @@ function getData(){
 						});
 				}
 			}
+			while(dom.dm.childNodes.length>200)dom.dm.removeChild(dom.dm.childNodes[0]);
 		}
 	});
 }
 function sendMessage(){
+	if(dom.text.disabled=="disabled")return;
 	var t=dom.text.value.replace(/\ /g,"");
 	if(t==""){
-		alert("你还没有输入吐槽的内容呢！");
 		dom.text.focus();
 		return;
 	}
@@ -214,4 +215,5 @@ function toggleDM(){
 // 定时AJAX
 getData();
 setInterval(getData,ajaxLag);
-dom.text.onkeypress=function(d){if(d.keyCode==13)sendMessage();}
+dom.text.onkeypress=function(){if(event.keyCode==13)sendMessage();}
+dom.text.focus();
