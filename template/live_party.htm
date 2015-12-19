@@ -6,45 +6,44 @@
 <![endif]-->
 <div class="popup pop-green">视频看不了？直播要用内网看哦！如何上内网？点击<b><a href="http://my.nuaa.edu.cn/forum.php?mod=viewthread&tid=291857" target="_blank">这里</a></b>！</div>
 <div id="outer">
-	<div id="player"></div>
-	<div id="floatDM"></div>
+	<div id="floatDM">
+		<div id="player"></div>
+	</div>
 	<script src="{$plugPosi}/flowplayer-3.2.13.min.js"></script>
 	<script>
 	var ver={$ver};
 	flowplayer("player", "{$plugPosi}/flowplayer-3.2.18.swf", {
+		canvas: {
+			backgroundColor: '#000000',
+			backgroundGradient: 'none'
+		},
 		clip: {
-			url: 'nuaa',
-			live: true,
+			url: 'tv637',
 			scaling: 'fit',
 			provider: 'hddn',
-			bufferLength: '1',
-			autoPlay: true,
-			autoBuffering: true
+			live: true,
+			autoBuffering:true,
+			connectionProvider: 'clustering'
 		},
 		plugins: {
 			hddn: {
-				url: "{$plugPosi}/flowplayer.rtmp-3.2.13.swf",
-				netConnectionUrl: '{$url}'
+				url: "{$plugPosi}/flowplayer.rtmp-3.2.13.swf"
+			},
+			clustering: {
+				url: "{$plugPosi}/flowplayer.cluster-3.2.10.swf",
+				hosts: [{
+					host:'{$url}'
+				}]
 			}
-		},
-		canvas: {
-			backgroundColor: '#000000',
-			backgroundGradient: 'none',
 		}
 	});
 	</script>
 	<div id="dms">
-		<div id="dm-header">
-			<span class="avatar"></span>
-			<span class="author">用户</span>
-			<span class="content">吐槽</span>
-		</div>
 		<div id="dm">
-			<div id="loading">% 弹幕加载中，请稍候 %</div>
+			<div id="live_loading">% 弹幕加载中，请稍候 %</div>
 		</div>
 		<div id="controls">
 		<!--{if $_G['uid'] != 0}-->
-			<img class="avatar" src="./ucenter/avatar.php?uid={$_G['uid']}&size=small"></span>
 			<input id="sendText" type="text" placeholder="说点什么吧……" />
 			<div id="ctrl-buttons">
 				<a onclick="sendMessage()" title="发送弹幕（按回车键快一些哦~）">✔</a>

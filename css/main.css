@@ -5,9 +5,9 @@
 }
 #floatDM{
 	width:640px;
-	height:454px;
+	height:480px;
 	overflow:hidden;
-	position:absolute;
+	position:relative;
 }
 .floatDM{
 	font-family:"SimHei";
@@ -19,6 +19,7 @@
 	white-space:nowrap;
 	cursor:context-menu;
 	-webkit-user-select:none;
+	-moz-user-select:none;
 	user-select:none;
 }
 #floatDM img{
@@ -33,7 +34,8 @@
 	height:36px;
 	bottom:0;
 	box-sizing:border-box;
-	border-top:1px solid #666;
+	box-shadow:0 0 20px;
+	border-top:1px solid #BBB;
 }
 #controls>img{
 	width:35px;
@@ -46,15 +48,14 @@
 	padding:0;
 	outline:none;
 	border:none;
-	left:36px;
-	right:0;
+	left:0;
+	width:215px;
 	height:36px;
 	line-height:36px;
 	padding-left:0.5em;
-	width:15em;
 	box-sizing:border-box;
 }
-#loading{
+#live_loading{
 	width:15em;
 	height:3em;
 	line-height:3em;
@@ -65,7 +66,7 @@
 	margin:-1.5em 0 0 -7.5em;
 	border:none !important;
 }
-#loading:hover{background-color:#FFF !important;}
+#live_loading:hover{background-color:#FFF !important;}
 #player,#controls{float:left;}
 #ctrl-buttons{
 	display:inline-block;
@@ -109,62 +110,33 @@
 	right:0;
 	bottom:0;
 	overflow:hidden;
+	background:#EEE;
 }
 #dm{
 	position:absolute;
 	overflow:auto;
-	top:2.5em;
+	top:0;
 	left:0;
 	right:0;
 	bottom:35px;
 	box-sizing:border-box;
-	border-top:1px solid transparent;
 }
 #dm>div{
 	border-bottom:1px solid #BBB;
 	color:#000;
 	overflow:hidden;
-}
-#dm>div:hover{background:#EEE;}
-#dm-header{
-	font-weight:bold;
-	border-bottom:1px solid #BBB;
-	background:#EEE;
-	top:20px !important;
-	bottom:auto !important;
-	overflow:hidden;
-}
-.avatar,.author,.content{
-	display:inline-block;
-	float:left;
-}
-.avatar{
-	width:2.5em;
-	height:2.5em;
+	line-height:25px;
+	padding:0.2em 0.5em;
+	text-overflow:ellipsis;
+	width:100%;
+	white-space:nowrap;
 	box-sizing:border-box;
-	padding:2px;
-	border-radius:5px;
 }
-.author,.content{
-	line-height:2.5em;
-	height:2.5em;
-	vertical-align:top;
-	border-left:1px solid #BBB;
-	padding-left:0.4em;
+#dm>div:hover{background:#FFF;}
+#dm>div img{vertical-align:bottom;}
+#dm>div span{
+	font-weight:bold;
 }
-.author{
-	width:6em;
-	overflow:hidden;
-	white-space:nowrap;
-	text-overflow:ellipsis;
-}
-.content{
-	width:15em;
-	overflow:hidden;
-	white-space:nowrap;
-	text-overflow:ellipsis;
-}
-.content img{margin:2px 0;}
 #widthauto{display:none;}
 .widthauto #widthauto{display:block;}
 .popup{
