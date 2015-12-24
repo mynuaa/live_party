@@ -270,7 +270,7 @@ function cloneObject(p) {
 	window.sendMessage = function () {
 		var content = document.getElementById("sendText").value;
 		$.ajax({
-			url: "/wechat/ajax.php",
+			url: "/office/ajax.php",
 			type: "post",
 			data: JSON.stringify({
 				m: "p",
