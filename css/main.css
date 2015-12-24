@@ -1,3 +1,22 @@
+#msgbox{
+	position:absolute;
+	width:8em;
+	height:3em;
+	line-height:3em;
+	top:-4em;
+	right:-8em;
+	text-align:center;
+	opacity:0;
+	border:1px solid #FFF;
+	background:rgba(0,0,0,0.8);
+	border-radius:0.4em;
+	box-sizing:border-box;
+	transition:all 0.5s ease-out;
+}
+#msgbox.show{
+	opacity:1;
+	right:0.8em;
+}
 #player{
 	width:640px;
 	height:480px;
@@ -10,6 +29,7 @@
 	position:relative;
 }
 .floatDM{
+	display:inline-block;
 	font-family:"SimHei";
 	font-size:28px;
 	position:absolute;
@@ -86,6 +106,9 @@
 	user-select:none;
 	font-size:1.5em;
 	font-family:"SimHei";
+}
+#ctrl-buttons i{
+	line-height:35px;
 }
 #ctrl-buttons>a:hover{background:#BBB;}
 #ctrl-buttons>a:active{

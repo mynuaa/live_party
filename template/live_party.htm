@@ -1,5 +1,6 @@
 <!--{template common/header}-->
 <link rel="stylesheet" href="{$plugPosi}/css/main.css">
+<link rel="stylesheet" href="{$plugPosi}/css/font-awesome.min.css">
 <div id="widthauto" class="popup pop-yellow">推荐使用窄版观看此页面哦，点击网页右上角的按钮可以快速切换的！</div>
 <!--[if lt IE 9]>
 <div class="popup pop-yellow">推荐使用现代浏览器（IE9+、Chrome、Firefox、Opera……）访问本页面。<br />若你确信你的浏览器是IE9+，请关掉兼容性视图。</div>
@@ -37,22 +38,27 @@
 			}
 		}
 	});
+	var user = {
+		uid: {$_G[uid]},
+		username: "{$_G[username]}"
+	};
 	</script>
 	<div id="dms">
 		<div id="dm">
 			<div id="live_loading">% 弹幕加载中，请稍候 %</div>
 		</div>
 		<div id="controls">
+			<div id="msgbox"></div>
 		<!--{if $_G['uid'] != 0}-->
-			<input id="sendText" type="text" placeholder="说点什么吧……" />
+			<input id="sendText" type="text" placeholder="说点什么吧……" autofocus>
 			<div id="ctrl-buttons">
-				<a onclick="sendMessage()" title="发送弹幕（按回车键快一些哦~）">✔</a>
-				<a id="toggle" onclick="toggleDM()" title="显示/隐藏弹幕">●</a>
+				<a onclick="sendMessage()" title="发送弹幕（按回车键快一些哦~）"><i class="fa fa-arrow-right"></i></a>
+				<a id="toggle" onclick="toggleDM()" title="隐藏弹幕"><i class="fa fa-comments"></i></a>
 		<!--{else}-->
 			<span style="line-height:34px;padding-left:0.5em">要发送弹幕，请先登录。</span>
 			<div id="ctrl-buttons">
 		<!--{/if}-->
-				<a href="plugin.php?id=NewPlaneWall:NewPlaneWall" target="_blank" title="打开飞机墙">✈</a>
+				<a href="http://my.nuaa.edu.cn/office/plugins/planewall/2015-12/" target="_blank" title="打开飞机墙"><i class="fa fa-desktop"></i></a>
 			</div>
 		</div>
 	</div>

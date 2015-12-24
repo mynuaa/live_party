@@ -210,6 +210,31 @@ function cloneObject(p) {
 			}
 		});
 	}
+	function getStyle(sname){
+		var rules;
+		for (var i = 0; i < document.styleSheets.length; i++) {
+			if (!(rules = document.styleSheets[i].cssRules))
+				rules = document.styleSheets[i].rules;
+		    for (var j = 0; j < rules.length; j++)
+			if (rules[j].selectorText == sname)
+				return rules[j].style;
+		}
+	}
+	window.toggleDM = function () {
+		var style = getStyle(".floatDM");
+		var hasDM = !(style.display == "none");
+		var $toggle = document.getElementById("toggle");
+		if (hasDM) {
+			style.display = "none";
+			$toggle.innerHTML = '<i class="fa fa-comments-o"></i>';
+			$toggle.title = "显示弹幕";
+		}
+		else {
+			style.display = "inline-block";
+			$toggle.innerHTML = '<i class="fa fa-comments"></i>';
+			$toggle.title = "隐藏弹幕";
+		}
+	};
 	function addDM(id) {
 		var min = 100;
 		var mini = 0;
@@ -233,6 +258,45 @@ function cloneObject(p) {
 		}, 100);
 	}
 	window.add = addDM;
+	window.msgboxShow = function (cont, color) {
+		var $msgbox = document.getElementById("msgbox");
+		$msgbox.innerHTML = '<span style="color:' + color + '">' + cont + '</span>';
+		$msgbox.className = "show";
+		setTimeout(function () {
+			$msgbox.className = "";
+		}, 2000);
+	};
+	window.sendMessage = function () {
+		var content = document.getElementById("sendText").value;
+		$.ajax({
+			url: "/wechat/ajax.php",
+			type: "post",
+			data: JSON.stringify({
+				m: "p",
+				a: user.username,
+				c: content,
+				uid: user.uid
+			}),
+			timeout: 3000,
+			contentType: "application/json",
+			success: function (d) {
+				msgboxShow("发送成功！", "#9F9");
+				$sendText.disabled = null;
+			},
+			error: function () {
+				msgboxShow("发送失败:(", "#F99");
+				$sendText.disabled = null;
+			}
+		});
+	};
+	var $sendText = document.getElementById("sendText");
+	$sendText.onkeypress = function (key) {
+		if (key.keyCode == 13) {
+			sendMessage();
+			$sendText.value = "";
+			$sendText.disabled = "disabled";
+		}
+	};
 	function loadComplete() {
 		$("#live_loading").remove();
 		isFirstLoad = false;
