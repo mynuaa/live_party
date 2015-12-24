@@ -260,7 +260,8 @@ function cloneObject(p) {
 	window.add = addDM;
 	window.msgboxShow = function (cont, color) {
 		var $msgbox = document.getElementById("msgbox");
-		$msgbox.innerHTML = '<span style="color:' + color + '">' + cont + '</span>';
+		$msgbox.style.background = color;
+		$msgbox.innerText = cont;
 		$msgbox.className = "show";
 		setTimeout(function () {
 			$msgbox.className = "";
@@ -280,12 +281,14 @@ function cloneObject(p) {
 			timeout: 3000,
 			contentType: "application/json",
 			success: function (d) {
-				msgboxShow("发送成功！", "#9F9");
+				msgboxShow("发送成功！", "#16A085");
 				$sendText.disabled = null;
+				$sendText.focus();
 			},
 			error: function () {
-				msgboxShow("发送失败:(", "#F99");
+				msgboxShow("发送失败:(", "#C0392B");
 				$sendText.disabled = null;
+				$sendText.focus();
 			}
 		});
 	};
