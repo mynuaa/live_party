@@ -12,7 +12,7 @@ if (isset($_GET['ajax'])) {
 			if ($_G['uid'] == 0) die();
 			break;
 	}
-	if (strpos($_SERVER['HTTP_HOST'], 'nuaa') !== false) $ch = curl_init('http://zfjoffice.sinaapp.com/ajax.php');
+	if (strpos($_SERVER['HTTP_HOST'], 'nuaa') !== false) $ch = curl_init('http://zfjoffice.rexskz.info/ajax.php');
 	else $ch = curl_init('http://localhost/wechat/ajax.php');
 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $input);
