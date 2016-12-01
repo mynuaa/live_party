@@ -2,29 +2,25 @@
 
 $content = file_get_contents('php://input');
 $content = json_decode($content, true);
+$danmakuCh = curl_init();
+
+$danmakuApi = "http://my.nuaa.edu.cn/office/ajax.php?class=danmaku";
 if(isset($content['token']) && ($content['token'] == 'mynuaa-video')) {
-    $pw_content = $content['text'];
-    $pw_author = '2';
-    $pw_msgid = '2';
-    $pw_type = isset($content['type']) ? $content['type'] : 'right';
-    $pw_color = isset($content['color']) ? $content['color'] : '#FFF';
-    $pw_avatar_url = '3';
-} else if($_GET['id']){
-    if ($lastId == 0) {
-        $sql = "SELECT 
-          `pw_content` AS `text`,
-          `pw_author` AS `author`,
-          `pw_type` AS `type`,
-          `pw_color` AS `color`,
-          1 AS `time`
-          FROM `pw_post` WHERE `pw_id` = {$player} ORDER BY `pw_unique_id` DESC LIMIT 10";
-    } else {
-        $sql = "SELECT `pw_content` AS `text`,
-          `pw_author` AS `author`,
-          `pw_type` AS `type`,
-          `pw_color` AS `color`,
-          1 AS `time`
-          FROM `pw_post` WHERE `pw_id` = {$player} AND `pw_unique_id` > {$lastId}";
-    }
+    $data['text'] = $content['text'];
+    $data['username'] = $_G['username'];
+    $data['uid'] = $_G['uid'];
+    $data['type'] = isset($content['type']) ? $content['type'] : 'right';
+    $data['color'] = isset($content['color']) ? $content['color'] : '#FFF';
+    $data['token'] = $content['token'];
+} else if($_GET['player']){
+    $lastId = (isset($_GET['lastId'])) ? intval($_GET['lastId']) : 0;
+    $danmakuApi = $danmakuApi . "&lastId={$lastId}";
+    $config = array(
+      CURLOPT_URL => $danmakuApi,
+      CURLOPT_POST => false,
+    )
+    curl_setopt_array($danmakuCh, $config);
 }
-echo '0';
+$output = curl_exec($danmakuCh);
+curl_close($danmakuCh);
+echo $output;
