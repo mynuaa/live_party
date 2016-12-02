@@ -6,11 +6,11 @@ var player = new DPlayer({
     loop: true,
     hotkey: useHotKey,
     video: {
-        url: 'http://my.nuaa.edu.cn/hls/hls/away.m3u8'
+        url: 'http://211.65.102.6:8080/hls/box.m3u8'
     },
     danmaku: {
-        id: '1',
-        api: 'plugin.php?id=live_party:danmaku',
+        id: 'live:away',
+        api: '/plugin.php?id=live_party:danmaku',
         token: 'mynuaa-video'
     }
 });
