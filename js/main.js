@@ -6,7 +6,7 @@ var player = new DPlayer({
     loop: true,
     hotkey: !isMobile,
     video: {
-        url: 'http://211.65.102.6:8080/hls/box.m3u8'
+        url: 'http://my.nuaa.edu.cn/hls/box.m3u8'
     },
     danmaku: {
         api: '/plugin.php?id=live_party:danmaku',
