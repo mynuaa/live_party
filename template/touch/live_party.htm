@@ -1,23 +1,29 @@
-<!--{template common/header}-->
-<style>
-.dplayer .dplayer-controller .dplayer-icons .dplayer-icon {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    width: 30px;
-}
-.dplayer .dplayer-controller .dplayer-icons .dplayer-comment .dplayer-comment-box .dplayer-comment-input {
-    width: 270px;
-}
-#video-left {
-    margin: 1em;
-}
-#video-left li {
-    padding: 0.5em 1em;
-}
-</style>
-<div id="player" class="dplayer"></div>
-<script src="/lib/DPlayer/plugin/hls.min.js"></script>
-<script src="/lib/DPlayer/dist/DPlayer.min.js"></script>
-<script src="{$plugPosi}/js/main.js"></script>
-<!--{template common/footer}-->
-
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<style>
+	.dplayer .dplayer-controller .dplayer-icons .dplayer-icon {
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+		width: 30px;
+	}
+	.dplayer .dplayer-controller .dplayer-icons .dplayer-comment .dplayer-comment-box .dplayer-comment-input {
+		width: 270px;
+	}
+	body {
+		background:  #000;
+	}
+	</style>
+	<title>视频直播 - Powered by 纸飞机南航青年网络社区</title>
+</head>
+<body>
+	<link rel="stylesheet" href="{$plugPosi}/css/main.css">
+	<div class="popup">推荐使用内网观看直播，更加顺畅^_^<br>如何上内网？点击 <a href="http://my.nuaa.edu.cn/forum.php?mod=viewthread&tid=291857" target="_blank">这里</a>！</div>
+	<div id="player" class="dplayer"></div>
+	<script src="/lib/DPlayer/plugin/hls.min.js"></script>
+	<script src="/lib/DPlayer/dist/DPlayer.min.js"></script>
+	<script src="{$plugPosi}/js/main.js"></script>
+</body>
+</html>
