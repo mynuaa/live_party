@@ -9,7 +9,6 @@ var player = new DPlayer({
         url: 'http://211.65.102.6:8080/hls/box.m3u8'
     },
     danmaku: {
-        id: '1',
         api: '/plugin.php?id=live_party:danmaku',
         token: 'mynuaa-video'
     }
