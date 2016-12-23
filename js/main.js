@@ -6,10 +6,12 @@ var player = new DPlayer({
     loop: true,
     hotkey: !isMobile,
     video: {
-        url: 'http://my.nuaa.edu.cn/hls/box.m3u8'
+        url: 'http://' + location.host + '/hls/9.m3u8',
     },
     danmaku: {
-        api: '/plugin.php?id=live_party:danmaku',
-        token: 'mynuaa-video'
-    }
+        api: 'http://' + location.host + '/plugin.php?id=live_party:danmaku',
+        token: 'mynuaa-video',
+        ajaxTimeout: 25000,
+        ajaxLag: 0,
+    },
 });
