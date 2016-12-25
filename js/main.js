@@ -6,7 +6,7 @@ var player = new DPlayer({
     loop: true,
     hotkey: !isMobile,
     video: {
-        url: 'http://oiorb2mdc.bkt.clouddn.com/9.m3u8',
+        url: 'http://oiorb2mdc.bkt.clouddn.com/999.m3u8',
     },
     danmaku: {
         api: 'http://' + location.host + '/plugin.php?id=live_party:danmaku',
