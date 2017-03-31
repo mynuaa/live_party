@@ -1,5 +1,5 @@
 var isMobile = /mobile/i.test(navigator.userAgent);
-var api = '/plugin.php?id=live_party:danmaku';
+var api = '//' + window.G.host + '/plugin.php?id=live_party:danmaku';
 var dp = new DPlayer({
     element: document.getElementById('player'),
     autoplay: !isMobile,
@@ -42,8 +42,11 @@ var getLiveDanmaku = function () {
                         }
                         for (var danIndex = 0; danIndex < dan.length; danIndex++) {
                             var t = dan[danIndex];
-                            if (t) {
-                                dp.pushDanmaku(t.text, t.color, t.type);
+                            if (!/<\s*img/.test(t.text)) {
+                                t.text = t.text.replace(/</g, '&lt;');
+                                if (t) {
+                                    dp.pushDanmaku(t.text, t.color, t.type);
+                                }
                             }
                         }
                     }
@@ -55,7 +58,7 @@ var getLiveDanmaku = function () {
             }
         }
     };
-    let apiurl = `${api}&player=@live@&lastId=${lastId}`;
+    var apiurl = `${api}&player=@live@&lastId=${lastId}`;
     xhr.timeout = ajaxTimeout;
     xhr.ontimeout = function () {
         setTimeout(getLiveDanmaku, ajaxLag);
