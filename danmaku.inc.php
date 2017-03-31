@@ -10,6 +10,10 @@ $danmakuCh = curl_init();
 
 $danmakuApi = "http://{$_SERVER['HTTP_HOST']}/office/ajax.php?class=danmaku";
 if (isset($content['token']) && ($content['token'] == 'mynuaa-video')) {
+    if ($_G['uid'] == 0) {
+        echo json_encode(['msg' => '你需要登录才可以发送弹幕。'], JSON_UNESCAPED_UNICODE);
+        die();
+    }
     $data['text'] = $content['text'];
     $data['username'] = $_G['username'];
     $data['uid'] = $_G['uid'];
