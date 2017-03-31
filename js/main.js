@@ -58,7 +58,7 @@ var getLiveDanmaku = function () {
             }
         }
     };
-    var apiurl = `${api}&player=@live@&lastId=${lastId}`;
+    var apiurl = api + '&player=@live@&lastId=' + lastId;
     xhr.timeout = ajaxTimeout;
     xhr.ontimeout = function () {
         setTimeout(getLiveDanmaku, ajaxLag);
