@@ -28,8 +28,10 @@ html, body {
 }
 .bg-bottom {
     transform: rotate(180deg);
-    -o-transform: rotate(180deg);
     -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
     bottom: 0;
 }
 .bg-gradient {
@@ -44,14 +46,8 @@ html, body {
     z-index: -1;
 }
 .wrapper {
-    width: 90%;
-    max-width: 1080px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    overflow: hidden;
+    max-width: 100%;
+    margin: 20px auto;
 }
 #widthauto {
     display: none;
@@ -74,6 +70,10 @@ html, body {
 }
 .popup.hidden {
     margin-top: -42px;
+}
+.dplayer-bar-wrap,
+.dplayer-time {
+    display: none;
 }
 @media screen and (max-width: 600px) {
     .dplayer .dplayer-controller .dplayer-icons .dplayer-icon {
@@ -107,6 +107,9 @@ html, body {
     .popup.hidden {
         margin-top: 0 !important;
         -webkit-transform: translateY(-100%);
+        -moz-transform: translateY(-100%);
+        -ms-transform: translateY(-100%);
+        -o-transform: translateY(-100%);
         transform: translateY(-100%);
     }
     .bg-gradient {

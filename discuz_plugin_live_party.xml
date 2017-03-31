@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <root>
 	<item id="Title"><![CDATA[Discuz! Plugin]]></item>
-	<item id="Version"><![CDATA[X3.1]]></item>
-	<item id="Time"><![CDATA[2014-12-17 23:27]]></item>
-	<item id="From"><![CDATA[Discuz! Board (http://localhost/zfj/bbs/)]]></item>
+	<item id="Version"><![CDATA[X3.3]]></item>
+	<item id="Time"><![CDATA[2017-03-31 03:17]]></item>
+	<item id="From"><![CDATA[纸飞机南航青年网络社区 (http://test.my.nuaa.edu.cn/)]]></item>
 	<item id="Data">
 		<item id="plugin">
-			<item id="available"><![CDATA[0]]></item>
+			<item id="available"><![CDATA[1]]></item>
 			<item id="adminid"><![CDATA[0]]></item>
 			<item id="name"><![CDATA[晚会直播]]></item>
 			<item id="identifier"><![CDATA[live_party]]></item>
@@ -14,16 +14,34 @@
 			<item id="datatables"><![CDATA[]]></item>
 			<item id="directory"><![CDATA[live_party/]]></item>
 			<item id="copyright"><![CDATA[by Rex]]></item>
-			<item id="modules"><![CDATA[b:0;]]></item>
+			<item id="modules"><![CDATA[a:0:{}]]></item>
 			<item id="version"><![CDATA[1.0.0]]></item>
 		</item>
-		<item id="version"><![CDATA[X3.1]]></item>
+		<item id="version"><![CDATA[X3.3]]></item>
 		<item id="var">
 			<item id="0">
 				<item id="displayorder"><![CDATA[0]]></item>
 				<item id="title"><![CDATA[视频流地址]]></item>
 				<item id="description"><![CDATA[]]></item>
 				<item id="variable"><![CDATA[netConnectionUrl]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[http://pili-live-hls.yuwenjie.cc/9th-birthday-party/live.m3u8]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="1">
+				<item id="displayorder"><![CDATA[0]]></item>
+				<item id="title"><![CDATA[API host]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[host]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[test.my.nuaa.edu.cn]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="2">
+				<item id="displayorder"><![CDATA[0]]></item>
+				<item id="title"><![CDATA[晚会名称]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[title]]></item>
 				<item id="type"><![CDATA[text]]></item>
 				<item id="value"><![CDATA[]]></item>
 				<item id="extra"><![CDATA[]]></item>

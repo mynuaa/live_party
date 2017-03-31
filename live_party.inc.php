@@ -3,6 +3,9 @@
 if (!defined('IN_DISCUZ')) die();
 
 	$plugPosi = "source/plugin/live_party";
-	$url = $_G['cache']['plugin']['live_party']['netConnectionUrl'];
+	$plugVars = $_G['cache']['plugin']['live_party'];
+	$url = $plugVars['netConnectionUrl'];
+	$host = $plugVars['host'];
+	$title = $plugVars['title'];
 	$ver = isset($_GET['ver']) ? $_GET['ver'] : -1;
 	include template("live_party:live_party");
