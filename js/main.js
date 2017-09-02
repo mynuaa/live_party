@@ -2,13 +2,13 @@ var isMobile = /mobile/i.test(navigator.userAgent);
 var api = '//' + window.G.host + '/plugin.php?id=live_party:danmaku';
 var dp = new DPlayer({
     element: document.getElementById('player'),
-    autoplay: !isMobile,
+    autoplay: false,
     theme: '#FADFA3',
     loop: true,
     hotkey: !isMobile,
     video: {
         url: window.G.url,
-        type: 'hls',
+        pic: window.G.thumbnails
     },
     danmaku: {
         // use an ID that is not exists

@@ -9,4 +9,5 @@ if (!defined('IN_DISCUZ')) die();
 	$host = $plugVars['host'];
 	$title = $plugVars['title'];
 	$ver = isset($_GET['ver']) ? $_GET['ver'] : -1;
+	$thumbnails = $plugVars['thumbnails'];
 	include template("live_party:live_party");
