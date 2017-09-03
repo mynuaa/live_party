@@ -1,0 +1,29 @@
+<!--{template common/header}-->
+<link rel="stylesheet" href="{$plugPosi}/css/main.css">
+<div id="pt" class="bm cl">
+	<!--{subtemplate common/simplesearchform}-->
+	<div class="z">
+		<a href="./" class="nvhm" title="{lang homepage}">$_G[setting][bbname]</a>
+		<em>&rsaquo;</em><a href="/plugin.php?id=live_party:live_party">视频直播</a>
+	</div>
+</div>
+<div class="wrapper">
+    <!--[if lt IE 9]>
+    <div class="popup pop-yellow">请使用现代浏览器（Chrome、Firefox、Opera、Safari、Edge、IE≥9）以获得良好的浏览体验。</div>
+    <![endif]-->
+    <div id="player" class="dplayer"></div>
+</div>
+<script>
+    window.G = {
+        host: '{$host}',
+        url: '{$url}',
+        title: '{$title}',
+        thumbnails: '{$thumbnails}',
+        type: 'hls'
+    };
+    document.title = '{$title} - 视频直播 - Powered by 纸飞机南航青年网络社区';
+</script>
+<script src="/lib/dplayer4dz/plugin/hls.min.js"></script>
+<script src="/lib/dplayer4dz/dist/DPlayer.min.js"></script>
+<script src="{$plugPosi}/js/main.js"></script>
+<!--{template common/footer}-->
