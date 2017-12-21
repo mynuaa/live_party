@@ -8,7 +8,7 @@ var dp = new DPlayer({
     hotkey: !isMobile,
     video: {
         url: window.G.url,
-        type: window.G.type || 'flv',
+        type: window.G.type || 'hls',
         pic: window.G.thumbnails
     },
     danmaku: {
